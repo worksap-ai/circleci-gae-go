@@ -1,4 +1,5 @@
 FROM circleci/golang:1.9.0
+LABEL maintainer "Works Applications Co., Ltd."
 
 ENV PATH=/usr/lib/google-cloud-sdk/bin:/usr/lib/google-cloud-sdk/platform/google_appengine:$PATH
 
