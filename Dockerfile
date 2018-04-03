@@ -2,6 +2,7 @@ FROM circleci/golang:1.9.0
 LABEL maintainer "Works Applications Co., Ltd."
 
 ENV PATH=/usr/lib/google-cloud-sdk/bin:/usr/lib/google-cloud-sdk/platform/google_appengine:$PATH
+ENV GOPATH=/go
 
 RUN sudo apt-get update && \
     sudo apt-get install -y unzip && \
@@ -21,5 +22,9 @@ RUN curl -ssl https://sdk.cloud.google.com | sudo bash -s -- --disable-prompts -
     /usr/lib/google-cloud-sdk/platform/google_appengine/godoc \
     /usr/lib/google-cloud-sdk/platform/google_appengine/gofmt \
     /usr/lib/google-cloud-sdk/platform/google_appengine/appcfg.py
+
+RUN go get -v github.com/axw/gocov/gocov && \
+    go get -v github.com/mattn/goveralls && \
+    go get -v github.com/golang/lint/golint
 
 RUN curl https://glide.sh/get | sh
