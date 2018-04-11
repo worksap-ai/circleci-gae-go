@@ -25,6 +25,7 @@ RUN curl -ssl https://sdk.cloud.google.com | sudo bash -s -- --disable-prompts -
 
 RUN go get -v github.com/axw/gocov/gocov && \
     go get -v github.com/mattn/goveralls && \
-    go get -v github.com/golang/lint/golint
+    go get -v github.com/golang/lint/golint && \
+    go get -v golang.org/x/tools/cmd/goimports
 
 RUN curl https://glide.sh/get | sh
